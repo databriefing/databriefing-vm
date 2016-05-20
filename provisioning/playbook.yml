@@ -7,7 +7,7 @@
     - name: Update apt cache
       apt: update_cache=yes
 
-    - name: Install the basics, pip3, matplotlib, numpy, scipy
+    - name: Install the basics, pip3, matplotlib, numpy, scipy, pandas
       sudo: yes
       apt: name={{ item }} state=latest
       with_items:
@@ -17,6 +17,7 @@
         - python3-matplotlib
         - python3-numpy
         - python3-scipy
+        - python3-pandas
 
     - name: Install scikit-learn, Jupyter, TensorFlow
       sudo: yes
