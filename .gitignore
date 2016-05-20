@@ -60,3 +60,14 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
+
+#Mac
+.DS_Store
+
+# Python
+*.pyc
+*.pyo
+
+# Vagrant
+.vagrant
+

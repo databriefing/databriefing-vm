@@ -1,0 +1,30 @@
+---
+- hosts: all
+  sudo: true
+  vars:
+      tensorflow_url: https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.7.1-cp34-none-linux_x86_64.whl
+  tasks:
+    - name: Update apt cache
+      apt: update_cache=yes
+
+    - name: Install the basics, pip3, matplotlib, numpy, scipy
+      sudo: yes
+      apt: name={{ item }} state=latest
+      with_items:
+        - python3-pip
+        - python3-dev
+        - build-essential
+        - python3-matplotlib
+        - python3-numpy
+        - python3-scipy
+
+    - name: Install scikit-learn, Jupyter, TensorFlow
+      sudo: yes
+      pip: name={{ item }} state=latest executable=pip3
+      with_items:
+        - sklearn
+        - jupyter
+        - "{{ tensorflow_url }}"
+
+    - shell: echo "cd ~/shared" >> /home/vagrant/.profile
+
