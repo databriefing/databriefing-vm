@@ -2,7 +2,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/wily64"
-  config.vm.synced_folder "shared", "/home/vagrant/shared"
+  config.vm.synced_folder "shared", "/home/vagrant/shared", nfs: true
 
   config.hostmanager.enabled = true
   config.hostmanager.manage_host = true
