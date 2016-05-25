@@ -71,3 +71,4 @@ target/
 # Vagrant
 .vagrant
 
+shared/data
