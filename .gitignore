@@ -72,3 +72,4 @@ target/
 .vagrant
 
 shared/data
+shared/src/article-notebooks/
